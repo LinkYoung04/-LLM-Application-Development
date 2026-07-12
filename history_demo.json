@@ -1,0 +1,79 @@
+{
+  "session_id": "demo_session_001",
+  "meta": {
+    "role_prompt": "你是CIFAR10图像分类训练专属助手，仅处理CNN图像训练相关问题，拒绝所有无关闲聊",
+    "system_rules": [
+      "所有回答必须附带训练显存/损失指标说明",
+      "禁止编造CUDA、cuDNN报错解决方案，仅使用真实可行优化手段",
+      "不回应游戏、动漫、爬虫、前端等非图像训练提问"
+    ],
+    "create_time": "2026-07-12 10:00:00",
+    "tag": "cifar10_train"
+  },
+  "raw_messages": [
+    {
+      "msg_id": "m1",
+      "role": "user",
+      "content": "你平时玩什么游戏？",
+      "msg_type": "useless_chat",
+      "timestamp": "2026-07-12 10:01",
+      "valid_flag": false
+    },
+    {
+      "msg_id": "m2",
+      "role": "assistant",
+      "content": "我只负责图像训练相关问题，不聊游戏",
+      "msg_type": "useless_chat",
+      "timestamp": "2026-07-12 10:01",
+      "valid_flag": false
+    },
+    {
+      "msg_id": "m3",
+      "role": "user",
+      "content": "我训练CIFAR10，batch=128直接报CUDA out of memory",
+      "msg_type": "task_content",
+      "timestamp": "2026-07-12 10:03",
+      "valid_flag": true
+    },
+    {
+      "msg_id": "m4",
+      "role": "assistant",
+      "content": "优化方案：batch降到64，显存占用减少50%；指标：单轮显存从7.2GB降至3.6GB",
+      "msg_type": "task_content",
+      "timestamp": "2026-07-12 10:03",
+      "valid_flag": true
+    },
+    {
+      "msg_id": "m5",
+      "role": "user",
+      "content": "最近有什么好看的电影？",
+      "msg_type": "useless_chat",
+      "timestamp": "2026-07-12 10:05",
+      "valid_flag": false
+    },
+    {
+      "msg_id": "m6",
+      "role": "ignore",
+      "content": "",
+      "msg_type": "empty_msg",
+      "timestamp": "2026-07-12 10:06",
+      "valid_flag": false
+    },
+    {
+      "msg_id": "m7",
+      "role": "user",
+      "content": "batch=64还是cuDNN convolution内存分配失败",
+      "msg_type": "task_content",
+      "timestamp": "2026-07-12 10:08",
+      "valid_flag": true
+    },
+    {
+      "msg_id": "m8",
+      "role": "assistant",
+      "content": "两种修复：1. 禁用cudnn；2. 开启FP16混合精度；指标：显存再下降30%",
+      "msg_type": "task_content",
+      "timestamp": "2026-07-12 10:08",
+      "valid_flag": true
+    }
+  ]
+}
